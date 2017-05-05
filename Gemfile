@@ -12,10 +12,16 @@ gem 'rails', '~> 5.0.2'
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+# use devise for authentication
+gem 'devise'
 # use Omniauth
 gem 'omniauth'
-# use Omniauth w.Facebook
+# use Omniauth w.Facebook login
 gem 'omniauth-facebook', '4.0.0'
+# use Omniauth w.Google login
+gem 'omniauth-google-oauth2'
+# google APIs
+gem 'google-api-client', require: 'google/api_client'
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
