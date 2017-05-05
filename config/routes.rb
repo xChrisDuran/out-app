@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+  
+  devise_for :users
   # --------------------------
   # routes to/from splash page
   # --------------------------

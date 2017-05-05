@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OutApp</title>
+    <title>Out App</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,13 +10,18 @@
 
   <body>
     <div id="user-widget">
-  <% if current_user %>
-    Welcome <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
-</div>
+      <% if current_user %>
+      Welcome
+      <strong><%= current_user.name %></strong>!
+      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <% else %>
+      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+      <% end %>
+    </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
 
   </body>
