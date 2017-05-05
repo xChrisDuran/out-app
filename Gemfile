@@ -17,11 +17,11 @@ gem 'devise'
 # use Omniauth
 gem 'omniauth'
 # use Omniauth w.Facebook login
-gem 'omniauth-facebook', '4.0.0'
+# gem 'omniauth-facebook', '4.0.0'
 # use Omniauth w.Google login
-gem 'omniauth-google-oauth2'
+# gem 'omniauth-google-oauth2'
 # google APIs
-gem 'google-api-client'
+# gem 'google-api-client'
 # adding geocoder
 gem 'geocoder'
 # Use SCSS for stylesheets
