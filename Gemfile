@@ -21,7 +21,9 @@ gem 'omniauth-facebook', '4.0.0'
 # use Omniauth w.Google login
 gem 'omniauth-google-oauth2'
 # google APIs
-gem 'google-api-client', require: 'google/api_client'
+gem 'google-api-client'
+# adding geocoder
+gem 'geocoder'
 # Use SCSS for stylesheets
 # gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
