@@ -10,7 +10,25 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+// = require jquery
+// = require jquery_ujs
+// = require jquery-ui
 //= require turbolinks
 //= require_tree .
+
+window.onload = function() {
+    var video = document.getElementById('video');
+    var customMessage = document.getElementById('splashtext');
+    var customMessageTop = (video.offsetHeight / 2) - (customMessage.offsetHeight / 2);
+    var customMessageLeft = (video.offsetWidth / 2) - (customMessage.offsetWidth  / 2);
+
+    var splashBttn = document.getElementById('sbuttons');
+    var splashBttnTop = (video.offsetHeight / 3) - (splashBttn.offsetHeight / 3);
+    var splashBttnLeft = (video.offsetWidth / 2) - (splashBttn.offsetWidth  / 2);
+
+    customMessage.style.left = customMessageLeft + 'px';
+    customMessage.style.top = customMessageTop + 'px';
+
+    splashBttn.style.left = customMessageLeft + 'px';
+    splashBttn.style.top = customMessageTop + 'px';
+};

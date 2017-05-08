@@ -2,8 +2,6 @@ class UsersController < ApplicationController
 
 
   def show
-    user_id = params[:id]
-    @user = User.find(user_id)
 
   end
 
@@ -20,7 +18,12 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    @user = User.find(params[:id])
+      if @user.update_attributes(secure_params)
+        redirect_to user_path, :notice => 'no problems'
+      else
+        redirect_to user_path, :notice => 'something went wrong'
+      end
   end
 
   def destroy

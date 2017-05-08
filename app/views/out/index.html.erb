@@ -1,11 +1,31 @@
-<head>
-
-</head>
+<head></head>
 
 <body>
 
-    <h1 class="welcomeheading">
-      Welcome to Out!
-    </h1>
+  <nav id='login'>
 
-  </body>
+    <% if current_user %>
+    <%= link_to 'Logout', destroy_user_session_path, class: 'navbar-brand',  :method => :delete %>
+    <% else %>
+    <%= link_to "Login",  new_user_session_path, class: 'login'  %>
+    <% end %>
+  </nav>
+
+
+  <div id="vcontainer">
+
+    <%= video_tag "beach1.mp4", autoplay: "true", loop: "true", muted: "true", id: "video", :controls => false %>
+    <div id="splashtext">
+      Share your moment,<br/>
+      experience the world.
+    </div>
+
+    <div id='sbuttons'>
+      <%= link_to "About", about_path %>
+      <%= link_to "Signup", new_user_registration_path %>
+
+    </div>
+
+  </div>
+
+</body>

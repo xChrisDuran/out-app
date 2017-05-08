@@ -21,6 +21,36 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
+  <script>
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '124218284797740',
+    xfbml      : true,
+    version    : 'v2.9'
+  });
+  FB.AppEvents.logPageView();
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+  <div id="user-widget">
+    <% if current_user %>
+    Welcome
+    <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <% end %>
+  </div>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
