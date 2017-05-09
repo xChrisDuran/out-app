@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509070103) do
+ActiveRecord::Schema.define(version: 20170509175627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendances", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "moment_id"
+    t.integer  "user_id"
+    t.index ["moment_id"], name: "index_attendances_on_moment_id", using: :btree
+    t.index ["user_id"], name: "index_attendances_on_user_id", using: :btree
+  end
 
   create_table "moments", force: :cascade do |t|
     t.string  "name"
@@ -29,9 +38,7 @@ ActiveRecord::Schema.define(version: 20170509070103) do
     t.float   "longitude"
     t.string  "picture"
     t.integer "user_id"
-    t.integer "users_id"
     t.index ["user_id"], name: "index_moments_on_user_id", using: :btree
-    t.index ["users_id"], name: "index_moments_on_users_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,6 +93,5 @@ ActiveRecord::Schema.define(version: 20170509070103) do
   end
 
   add_foreign_key "moments", "users"
-  add_foreign_key "moments", "users", column: "users_id"
   add_foreign_key "videos", "users"
 end

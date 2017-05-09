@@ -3,10 +3,7 @@
 <div class="container mform-container">
   <div class="row">
 
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8">
-      <div class="panel panel-info">
-        <div class="panel-body">
+
           <h3>Share Moment!</h3>
           <%= f.label :name %><br>
           <%= f.text_field :name, minimum: 8 %><br>
@@ -15,10 +12,8 @@
           <%= f.text_area :description, class:"mform-textarea" %>
           <%= f.text_field :description, minimum: 25 %><br>
           <%= f.submit "Post" %>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-2"></div>
+    
+
   </div>
 </div>
 <% end %>

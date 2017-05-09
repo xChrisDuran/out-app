@@ -1,8 +1,8 @@
 class MomentsController < ApplicationController
+  before_filter :authenticate_user!
 
-  def  index
+  def index
     @moments = Moment.all
-
   end
 
   def show
@@ -12,11 +12,15 @@ class MomentsController < ApplicationController
 
   def new
     @moment = Moment.new
+  end
 
+  def edit
+    moment_id = params[:id]
+    @moment = Moment.find(moment_id)
   end
 
   def create
-    @moment = Moment.new(moment_params)
+    @moment = current_user.moments.new(params[:moment])
 
     respond_to do |format|
       if @moment.save
@@ -26,20 +30,25 @@ class MomentsController < ApplicationController
         format.html { render :new}
         format.json { render json: @moment.error, status: :unprocessable_entity}
       end
+    end
+  end
+
+  def update
+
   end
 
   def destroy
-    @moment = Moment.find(params[:id])
     @moment.destroy
     redirect_to user_path(@user)
-
-
   end
 
+private
+  def find_moment
+    @moment = @user.moments.find(params[:id])
+  end
 
-  private
-    def moment_params
-      params.require(:moment).permit(:name, :description)
+  def moment_owner
+    unless current_user.id == @moment.user_id
     end
   end
 end

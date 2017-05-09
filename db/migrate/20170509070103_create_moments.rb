@@ -14,7 +14,6 @@ class CreateMoments < ActiveRecord::Migration[5.0]
       t.float :longitude
       t.string :picture
       t.references :user, foreign_key: true
-      t.references :users, foreign_key: true
     end
   end
 end

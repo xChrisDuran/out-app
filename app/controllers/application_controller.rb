@@ -3,16 +3,24 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :authenticate_user!
 
-  private
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-  helper_method :current_user
-
   protected
+def configure_permitted_parameters
+  devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password, :remember_me)}
+  devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:email, :password, :remember_me)}
+  devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :birthday, :email, :password, :current_password, :remember_me)}
+end
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+def after_sign_in_path_for(resource_or_scope)
+  if session[:user_return_to]== nil
+    user_path(@user)
+  else
+    super
   end
+end
+
+private
+def after_sign_out_path_for(resource)
+  out_path
+end
 
 end
