@@ -4,17 +4,24 @@
 
   <nav id='login'>
 
-    <% if current_user %>
-    <%= link_to 'Logout', destroy_user_session_path, class: 'navbar-brand',  :method => :delete %>
-    <% else %>
-    <%= link_to "Login",  new_user_session_path, class: 'login'  %>
+    <% if !current_user %>
+<%= link_to "Sign up", new_user_registration_path, class: 'navbar-brand'  %>
     <% end %>
+      <% if current_user %>
+      <%= link_to "Profile", user_path(current_user.id), class: 'navbar-brand'  %>
+
+      <% end %>
+      <% if current_user %>
+      <%= link_to 'Logout', destroy_user_session_path, class: 'navbar-brand',  :method => :delete %>
+<% else %>
+<%= link_to "Login",  new_user_session_path, class: 'navbar-brand'  %>
+<% end %>
   </nav>
 
 
   <div id="vcontainer">
 
-    <%= video_tag "beach1.mp4", autoplay: "true", loop: "true", muted: "true", id: "video", :controls => false %>
+    <!-- <%= video_tag "beach1.mp4", autoplay: "true", loop: "true", muted: "true", id: "video", :controls => false %> -->
     <div id="splashtext">
       Share your moment,<br/>
       experience the world.

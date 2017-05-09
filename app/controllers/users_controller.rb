@@ -2,19 +2,8 @@ class UsersController < ApplicationController
 
 
   def show
-
-  end
-
-  def new
-
-  end
-
-  def edit
-
-  end
-
-  def create
-
+    @user = User.find(params[:id])
+    @user_moments = @user.moments
   end
 
   def update
@@ -26,8 +15,8 @@ class UsersController < ApplicationController
       end
   end
 
-  def destroy
-
-  end
-
+  private
+    def secure_params
+      params.require(:user).permit(:first_name, :last_name, :image, :about, :birthday, :city, :state)
+    end
 end

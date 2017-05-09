@@ -68,6 +68,7 @@ GEM
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.1)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     devise (4.2.1)
@@ -176,6 +177,10 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (0.20.0)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     pubnub (4.0.21)
       celluloid (~> 0.17)
       dry-validation (~> 0.10)
@@ -236,6 +241,7 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -288,6 +294,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   paperclip
   pg (~> 0.18)
+  pry
   pubnub
   puma (~> 3.0)
   rails (~> 5.0.2)
