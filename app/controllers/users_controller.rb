@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
       if @user.update_attributes(secure_params)
-        redirect_to user_path, :notice => 'no problems'
+        redirect_to user_path, :notice => 'Updated account'
       else
         redirect_to user_path, :notice => 'something went wrong'
       end

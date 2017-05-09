@@ -11,12 +11,12 @@ class MomentsController < ApplicationController
   end
 
   def new
-    @moment = current_user.moments.build
-    
+    @moment = Moment.new
+
   end
 
   def create
-    @moment = current_user.moments.build(moment_params)
+    @moment = Moment.new(moment_params)
 
     respond_to do |format|
       if @moment.save
@@ -38,8 +38,8 @@ class MomentsController < ApplicationController
 
 
   private
-    def post_params
-      params.require(:moment).permit(:name, :picture, :description)
+    def moment_params
+      params.require(:moment).permit(:name, :description)
     end
   end
 end

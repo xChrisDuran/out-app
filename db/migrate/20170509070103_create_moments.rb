@@ -4,8 +4,8 @@ class CreateMoments < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :location
       t.text :description
-      t.datetime :date
-      t.datetime :time
+      t.date :date
+      t.time :time
       t.string :image_file_name
       t.string :image_content_type
       t.integer :image_file_size
@@ -13,8 +13,8 @@ class CreateMoments < ActiveRecord::Migration[5.0]
       t.float :latitude
       t.float :longitude
       t.string :picture
-
-      t.timestamps
+      t.references :user, foreign_key: true
+      t.references :users, foreign_key: true
     end
   end
 end

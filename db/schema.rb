@@ -10,27 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509060023) do
+ActiveRecord::Schema.define(version: 20170509070103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "moments", force: :cascade do |t|
-    t.string   "name"
-    t.string   "location"
-    t.text     "description"
-    t.datetime "date"
-    t.datetime "time"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.integer  "attendance"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "picture"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.integer  "user_id"
+    t.string  "name"
+    t.string  "location"
+    t.text    "description"
+    t.date    "date"
+    t.time    "time"
+    t.string  "image_file_name"
+    t.string  "image_content_type"
+    t.integer "image_file_size"
+    t.integer "attendance"
+    t.float   "latitude"
+    t.float   "longitude"
+    t.string  "picture"
+    t.integer "user_id"
+    t.integer "users_id"
+    t.index ["user_id"], name: "index_moments_on_user_id", using: :btree
+    t.index ["users_id"], name: "index_moments_on_users_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,5 +85,7 @@ ActiveRecord::Schema.define(version: 20170509060023) do
     t.index ["user_id"], name: "index_videos_on_user_id", using: :btree
   end
 
+  add_foreign_key "moments", "users"
+  add_foreign_key "moments", "users", column: "users_id"
   add_foreign_key "videos", "users"
 end
