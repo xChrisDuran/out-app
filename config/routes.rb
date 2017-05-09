@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
 
-  
+
   devise_for :users
+  resources :moments
   # --------------------------
   # routes to/from splash page
   # --------------------------
@@ -49,7 +50,7 @@ Rails.application.routes.draw do
   # -------------
   # ---WORKING---
   # -------------
-  get '/moments', to: 'moments#index', as: 'moments'
+  # get '/moments', to: 'moments#index', as: 'moments'
   # -------------
   # ---WORKING---
   # -------------
@@ -57,12 +58,12 @@ Rails.application.routes.draw do
   # -------------
   # ---WORKING---
   # -------------
-  get '/moments/new', to: 'moments#new', as: 'new_moment'
+  # get '/moments/new', to: 'moments#new', as: 'new_moment'
   # needs post/'create'
   # -------------
   # ---WORKING---
   # -------------
-  get 'moments/:id/edit', to: 'moments#edit', as: 'edit_moment'
+  # get 'moments/:id/edit', to: 'moments#edit', as: 'edit_moment'
   # needs put/'update'
 
   # needs delete 'destroy'
