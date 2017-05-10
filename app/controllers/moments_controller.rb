@@ -26,9 +26,10 @@ class MomentsController < ApplicationController
 
   def create
     @moment = Moment.new(moment_params)
-
+    @user = User.find_by_id(session[:user_id])
+    @moment.user = @user
     if @moment.save
-    redirect_to moments_path
+    redirect_to moment_path
     else
     flash[:error] = @moment.errors.full_messages
 
