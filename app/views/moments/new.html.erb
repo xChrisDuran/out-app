@@ -1,4 +1,10 @@
-<div id="page_wrapper">
-  <h1>Comment</h1>
-   <%= render 'form' %>
-</div>
+
+  <h1>Create a Moment</h1>
+   <%= simple_form_for @moment do |f| %>
+   <%= f.input :name %>
+   <%= f.input :location %>
+   <%= f.label :When %>
+   <%= f.date_field :date, class: "form-control" %>
+   <%= f.input :description %>
+   <%= f.button :submit, :method => :put %>
+   <%end%>

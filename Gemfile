@@ -22,6 +22,8 @@ gem 'omniauth-facebook', '4.0.0'
 gem 'omniauth-google-oauth2'
 # google APIs
 # gem 'google-api-client'
+# date-picker
+gem 'bootstrap-datepicker-rails'
 # adding geocoder
 gem 'geocoder'
 # video processing for background
@@ -36,12 +38,14 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 # managers attachments easier
 gem 'paperclip'
+# calener for rails
+gem "simple_calendar"
 # backend-frontend communication notifications
 gem 'pubnub'
 # pry rails console
-gem 'pry'
+# gem 'pry'
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

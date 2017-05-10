@@ -11,16 +11,12 @@ def configure_permitted_parameters
 end
 
 def after_sign_in_path_for(resource_or_scope)
-  if session[:user_return_to]== nil
-    user_path(@user)
-  else
-    super
-  end
+  '/profile'
 end
 
 private
-def after_sign_out_path_for(resource)
-  out_path
+def after_sign_out_path_for(resource_or_scope)
+  '/'
 end
 
 end

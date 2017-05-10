@@ -1,13 +1,18 @@
 class MomentsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :current_user, only: [:edit, :update, :destroy]
 
   def index
     @moments = Moment.all
   end
 
   def show
+    if signed_in?
     moment_id = params[:id]
     @moment = Moment.find(moment_id)
+    else
+    @moment = Moment.find(moment_id)
+    end
   end
 
   def new
@@ -20,21 +25,32 @@ class MomentsController < ApplicationController
   end
 
   def create
-    @moment = current_user.moments.new(params[:moment])
+    @moment = Moment.new(moment_params)
 
-    respond_to do |format|
-      if @moment.save
-        format.html { redirect_to @moment, notice: "You're ready to share a moment."}
-        format.json { render :show, status: :created, location: @moment}
-      else
-        format.html { render :new}
-        format.json { render json: @moment.error, status: :unprocessable_entity}
-      end
+    if @moment.save
+    redirect_to moments_path
+    else
+    flash[:error] = @moment.errors.full_messages
+
+
+      # if @moment.save
+      #   format.html { redirect_to '/moment', notice: "You're ready to share a moment."}
+      #   format.json { render :show, status: :created, location: @moment}
+      # else
+      #   format.html { render :new}
+      #   format.json { render json: @moment.error, status: :unprocessable_entity}
+      # end
     end
   end
 
-  def update
 
+  def update
+    @moment = Moment.find(params[:id])
+    if @moment.update(moment_params)
+      redirect_to profile_path, alert: "Your moment has been udpated!"
+    else
+      render edit_moment_path, alert: "Ooops! Something went wrong, please try again"
+    end
   end
 
   def destroy
@@ -43,6 +59,10 @@ class MomentsController < ApplicationController
   end
 
 private
+  def moment_params
+    params.require(:moment).permit( :name, :location, :date, :description)
+  end
+
   def find_moment
     @moment = @user.moments.find(params[:id])
   end

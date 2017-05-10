@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   # ---WORKING---
   # -------------
   root to: 'out#index'
-  get '/', to: 'out#index', as: 'out'
   # -------------
   # ---WORKING---
   # -------------
   get '/about', to: 'out#about', as: 'about'
+
+  get '/profile', to: 'users#profile', as: 'profile'
 
   # ---------------
   # routes for user
@@ -27,18 +28,18 @@ Rails.application.routes.draw do
   # -------------
   # ---WORKING---
   # -------------
-  get '/users/:id/show', to: 'users#show', as: 'user'
+  # get '/users/:id/show', to: 'users#show', as: 'user'
   # create a user
   # -------------
   # ---WORKING---
   # -------------
-  get '/users/new', to: 'users#new', as: 'new_user'
+  # get '/users/new', to: 'users#new', as: 'new_user'
   # needs post/'create'
 
   # -------------
   # ---WORKING---
   # -------------
-  get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
+  # get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   # needs put/'update'
 
   # needs delete 'destroy'
@@ -54,7 +55,7 @@ Rails.application.routes.draw do
   # -------------
   # ---WORKING---
   # -------------
-  get '/moments/:id/show', to: 'moments#show', as: 'show'
+  # get '/moments/:id/show', to: 'moments#show', as: 'show'
   # -------------
   # ---WORKING---
   # -------------
@@ -70,8 +71,8 @@ Rails.application.routes.draw do
 
 
 
-match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-match 'auth/failure', to: redirect('/'), via: [:get, :post]
-match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+# match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+# match 'auth/failure', to: redirect('/'), via: [:get, :post]
+# match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
 end

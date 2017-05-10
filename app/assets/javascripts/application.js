@@ -11,10 +11,12 @@
 // about supported directives.
 //
 // = require jquery
+// = require bootstrap-sprockets
+//= require bootstrap-datepicker
 // = require jquery_ujs
 // = require jquery-ui
 //= require turbolinks
-//= require_tree .
+//= require_tree
 
 window.onload = function() {
     var video = document.getElementById('video');
