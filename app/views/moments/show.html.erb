@@ -3,7 +3,19 @@
     <h1 class="momentsheading">
       This is the moments show page!
     </h1>
+    <div class="articleLeft">
+      <%= @moment.description %>
+    </div>
+
+    <div class='article right'>
+
+    </div>
+
+
     <%= @moment.name %>
+    on
+    <% def pretty_date
+      pretty_date = Time.parse(@moment.date).to_date.strftime("%B %-d, %Y")
+    end %>
+    <%= pretty_date %> at
     <%= @moment.location %>
-    <%= @moment.date %>
-    <%= @moment.description %>

@@ -7,12 +7,10 @@ class MomentsController < ApplicationController
   end
 
   def show
-    if signed_in?
-    moment_id = params[:id]
-    @moment = Moment.find(moment_id)
-    else
-    @moment = Moment.find(moment_id)
-    end
+
+    @moment = Moment.find(params[:id])
+    @user = User.find_by_id(session[:user_id])
+
   end
 
   def new
@@ -27,9 +25,9 @@ class MomentsController < ApplicationController
   def create
     @moment = Moment.new(moment_params)
     @user = User.find_by_id(session[:user_id])
-    @moment.user = @user
+    @moment.user = current_user
     if @moment.save
-    redirect_to moment_path
+    redirect_to moment_path(@moment.id)
     else
     flash[:error] = @moment.errors.full_messages
 
@@ -47,7 +45,7 @@ class MomentsController < ApplicationController
 
   def update
     @moment = Moment.find(params[:id])
-    if @moment.update(moment_params)
+    if @moment.update(params[:moment].permit(:name, :location, :date, :description))
       redirect_to profile_path, alert: "Your moment has been udpated!"
     else
       render edit_moment_path, alert: "Ooops! Something went wrong, please try again"
@@ -55,6 +53,7 @@ class MomentsController < ApplicationController
   end
 
   def destroy
+    @moment = Moment.find(params[:id])
     @moment.destroy
     redirect_to user_path(@user)
   end
