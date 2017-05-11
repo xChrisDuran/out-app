@@ -39,15 +39,23 @@ body, html {
   padding: 0;
 }
 
-.vcontainer {
+
+#vcontainer {
   text-align: center;
+  height: 100%;
+  width: 100%;
 }
 
 .navbar {
   z-index: 2;
-  position: relative;
   background-color: transparent;
   text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.7);
+  position:absolute;
+    left:0%;
+    top:0%;
+    margin: 0px;
+    padding: 0;
+    width: 100%;
 }
 
 .navbar.container {
@@ -63,6 +71,9 @@ body, html {
 .icon-bar {
   background-color: white!important;
 }
+li a:hover {
+background: white;
+}
 
 @media (max-width: 200px) {
     .navbar-header {
@@ -75,9 +86,8 @@ body, html {
     }
     .navbar-collapse {
         border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgb(255,255,255);
+        box-shadow: inset 0 1px 0 rgba(255,255,255, 0.3);
     }
-
     .navbar-nav {
         float: none!important;
         margin: 7.5px -15px;
@@ -111,17 +121,34 @@ body, html {
   font-family: "Oxygen", sans-serif;
   z-index: 2;
   position: absolute;
-  display: inline-block;
   text-align: center;
   text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.7);
   font-size: 50px;
+  vertical-align: middle;
+  background-color: transparent;
+  display: inline;
+}
+
+.btn-primary {
+
+  &.btn-inverse {
+    @include button-variant($btn-primary-bg, $btn-primary-color, $btn-primary-bg);
+    &:hover {
+      @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    }
+  }
+  &.btn-transparent {
+    @include button-variant($btn-primary-bg, inherit, $btn-primary-bg);
+    &:hover {
+      @include button-variant($btn-primary-bg, darken($btn-primary-bg, 25%), $btn-primary-bg);
+    }
+  }
 }
 
 #sbuttons {
   z-index: 3;
-  position: absolute;
-  display: inline-block;
   font-size: 25px;
+
 }
 
 
