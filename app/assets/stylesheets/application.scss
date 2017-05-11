@@ -129,7 +129,23 @@ background: white;
   background-color: transparent;
   display: inline;
 }
-
+.btn-primary-full-color {
+  background-color: transparent;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease-out,
+              background-color 0.3s ease-out,
+              border-color 0.3s ease-out;
+}
+.btn-primary-full-color:hover,
+.btn-primary-full-color:active {
+  background-color: #1c87c9;
+  border-color: #1c87c9;
+  color: #fff;
+  transition: color 0.3s ease-in,
+              background-color 0.3s ease-in,
+              border-color 0.3s ease-in;
+}
 
 .ghost-button-full-color {
   display: inline-block;
