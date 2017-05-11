@@ -32,6 +32,8 @@ gem 'sidekiq'
 gem 'sidetiq'
 # frontend dependecy for sidekiq
 gem 'sinatra'
+# make my heroku site work
+gem 'rails_12factor'
 # bootstrap
 gem 'bootstrap-sass'
 # "make life easier gem" that generate nice forms without so much typing
@@ -78,6 +80,7 @@ end
 
 group :development do
   gem 'pg', '~> 0.18'
+  gem 'rails_12factor'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
