@@ -4,10 +4,8 @@
       This is the moments index page!
     </h1>
   <% @moments.each do |moment| %>
-  <%= image_tag moment.image.url(:medium) %>
   <%= moment.name %>
   <%= moment.location %>
-  <%= moment.time %>
   <%= moment.date %>
   <%= moment.description %>
 <% end %>
