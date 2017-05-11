@@ -86,7 +86,7 @@ background: white;
     }
     .navbar-collapse {
         border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255, 0.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255, 0.7);
     }
     .navbar-nav {
         float: none!important;
@@ -120,6 +120,7 @@ background: white;
 #splashtext {
   font-family: "Oxygen", sans-serif;
   z-index: 2;
+  color: white;
   position: absolute;
   text-align: center;
   text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.7);
@@ -129,26 +130,34 @@ background: white;
   display: inline;
 }
 
-.btn-primary {
 
-  &.btn-inverse {
-    @include button-variant($btn-primary-bg, $btn-primary-color, $btn-primary-bg);
-    &:hover {
-      @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-    }
-  }
-  &.btn-transparent {
-    @include button-variant($btn-primary-bg, inherit, $btn-primary-bg);
-    &:hover {
-      @include button-variant($btn-primary-bg, darken($btn-primary-bg, 25%), $btn-primary-bg);
-    }
-  }
+.ghost-button-full-color {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  text-align: center;
+  outline: none;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease-out,
+              background-color 0.3s ease-out,
+              border-color 0.3s ease-out;
 }
-
+.ghost-button-full-color:hover,
+.ghost-button-full-color:active {
+  background-color: #1c87c9;
+  border-color: #1c87c9;
+  color: #fff;
+  transition: color 0.3s ease-in,
+              background-color 0.3s ease-in,
+              border-color 0.3s ease-in;
+}
 #sbuttons {
-  z-index: 3;
-  font-size: 25px;
-
+color: white;
+font-size: 18px!important;
 }
 
 

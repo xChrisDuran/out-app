@@ -2,33 +2,26 @@
 
   <div id="vcontainer">
     <%= video_tag "rcoaster.mp4", autoplay: "true", loop: "true", muted: "true", id: "video", :controls => false %>
-    <
 
 
-      <div class="row justify-content-md-center">
+
+
+
 
       <div class="row justify-content-xs-center">
-        <div class="col-xs-8">
-          <div class=" col-12 col-xs-auto" id="splashtext">
-            <div clss="row">
-              <p>Share your moment,</p>
-              <p>experience the world.</p>
+        <div class="col-xs-12">
+          <div class=" col-6 col-xs-auto" id="splashtext">
+            <div class="row">
+              <p>Share your moment.</p>
+              <p>Experience the world.</p>
             </div>
 
 
-
             <!-- <button type="button" class="btn btn-primary btn-inverse" id="sbuttons"><%= link_to "About", about_path%></button> -->
-            <button type="button" class="btn btn-primary btn-inverse" id="sbuttons">Sign Up</button>
+            <button type="button" class="ghost-button-full-color" id="sbuttons"><%= link_to "Sign Up", new_user_registration_path, :id => "sbuttons"%></button>
 
           </div>
-
-
-
-
 
           </div>
         </div>
         </div>
-      </div>
-
-  </div>
