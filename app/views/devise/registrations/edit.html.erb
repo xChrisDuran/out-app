@@ -1,4 +1,7 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+    <div class="row justify-content-xs-center">
+      <div class="text-center col-md-6 col-md-offset-3">
+<h2>Edit Account</h2>
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { multipart: true, :method => :put, :role => 'form'}) do |f| %>
   <h4><%= devise_error_messages! %></h4>
@@ -24,23 +27,23 @@
   </div> -->
 <div class="container">
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-3">
       <%= f.label :first_name %><br />
       <%= f.text_field :first_name, :placeholder => 'First name'%>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-3">
       <%= f.label :last_name %><br />
       <%= f.text_field :last_name, :placeholder => 'Last name'%>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-3">
       <%= f.label :age %><br />
       <%= f.number_field :age, :autofocus => true, :placeholder => 'Age', :method => "put"%><br />
 
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-3">
       <%= f.label :birthday %><br />
       <%= f.date_field :birthday, :autofocus => true, :placeholder => 'Birthday'%>
     </div>
@@ -48,22 +51,23 @@
 
 
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-3">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-3">
       <%= f.label :password %><br />
       <%= f.password_field :current_password, autocomplete: "off", :placeholder => "confirm password" %>
     </div>
   </div>
 <br />
   <div class="row">
-    <div class="col-xs-6">
-    <%= button_to "Back", user_session_path %><br />
-    </div>
-    <div class="col-xs-6">
-    <%= f.submit "Update Account" %>    </div>
+    <div class="col-xs-3">
+    <%= button_to "Back", user_session_path,:class=>'btn btn-primary-full-color' %><br />
+  </div>
+  <div class="col-xs-3">
+
+    <%= f.submit "Update Account",:class=>'btn btn-primary-full-color' %>    </div>
   </div>
 
 
@@ -72,5 +76,8 @@
 <br />
 <br />
   <div class="field">
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,:class=>'btn btn-danger-full-color' %>
   </div>
+</div>
+</div>
+</div>

@@ -1,30 +1,25 @@
+<div class="container" id="profileFont">
+  <div class="row">
+    <div class="col-xs-4" style="border-color:yellow;">
+      <h2>About Me</h2><hr />
+      <p>
+        My name is Chris and I love to be outdoors. On my spare time I love to go hiking or on vacation when I get the chance. Meet me at the gym!
+      </p>
+      <%= link_to " Edit Account",  edit_user_registration_path, :class=>'btn btn-primary-full-color' %>
 
-<div class='articleLeft'>
-  <%= link_to " Edit Account",  edit_user_registration_path %>
-
-  <h2>Who I am</h2>
-  <p>
-    My name is Chris and I love the outdoors. When I'm home....
-  </p>
-
-
-  <h2>Experiencing Moments</h2>
-  <%  %>
-
-</div>
+    </div>
 
 
+    <div class="col-xs-4" style="border-color:pink;">
+      <img src="http://i.imgur.com/bLN5W81.png?1" class="img-circle avatar" alt="user profile image">
+    </div>
 
+    <div class="col-xs-4" style="border-color:green;">
+      <h2>My Moments</h2> <hr />
+    <%= link_to "Create a Moment", new_moment_path, :class=>'btn btn-primary-full-color' %>
 
-<div class='article right'>
-  <h2>My Moments</h2>
-
-  <div class='topMoments'>
-    <%  %>
-    <%  %>
-    <%  %>
-    <%= link_to 'Create Moment', new_moment_path %>
   </div>
+</div>
 
 
 </div>

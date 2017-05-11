@@ -1,11 +1,50 @@
 
 
-    <h1 class="momentsheading">
-      This is the moments index page!
-    </h1>
-  <% @moments.each do |moment| %>
-  <%= moment.name %>
-  <%= moment.location %>
-  <%= moment.date %>
-  <%= moment.description %>
-<% end %>
+
+
+
+
+
+
+<div class="container bootstrap snippet">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <div class="panel panel-white post panel-shadow">
+      <div class="post-heading">
+        <div class="pull-left image">
+          <img src="http://i.imgur.com/bLN5W81.png?1" class="img-circle avatar" alt="user profile image">
+        </div>
+        <div class="pull-left meta">
+          <div class="title h5">
+            <% @moments.each do |moment| %>
+            <% if current_user %>
+            <b><%= current_user.first_name %></b>
+            <% end %>
+            made a moment at <h6>
+
+              <%= @moment.location %>
+              <%end%>
+            </h6>
+          </div>
+
+        </div>
+      </div>
+      <% @moments.each do |moment| %>
+      <%= @moment.name %>
+      <%end%>
+      <br>
+      <br>
+      <div class="post-description"><% @moments.each do |moment| %>
+        <p>      <%= @moment.description %></p>
+        <% end %>
+        <br>
+        <div class="stats">
+          <% if current_user %>
+          <%= link_to 'Delete',  method: :delete, class: "btn btn-danger"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2"></div>
+</div>

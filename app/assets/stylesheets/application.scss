@@ -17,6 +17,7 @@
  @import "bootstrap";
  @import 'bootstrap-datepicker';
  @grid-float-breakpoint-max: (@grid-float-breakpoint 2000px);
+ @import 'moments';
  // # Or if using bootstrap v3:
  // *= require bootstrap-datepicker3
  // @import "require_tree";
@@ -130,6 +131,7 @@ background: white;
   display: inline;
 }
 .btn-primary-full-color {
+  color: black;
   background-color: transparent;
   border-radius: 15px;
   text-decoration: none;
@@ -141,6 +143,25 @@ background: white;
 .btn-primary-full-color:active {
   background-color: #1c87c9;
   border-color: #1c87c9;
+  color: #fff;
+  transition: color 0.3s ease-in,
+              background-color 0.3s ease-in,
+              border-color 0.3s ease-in;
+}
+
+.btn-danger-full-color {
+  color: black;
+  background-color: transparent;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease-out,
+              background-color 0.3s ease-out,
+              border-color 0.3s ease-out;
+}
+.btn-danger-full-color:hover,
+.btn-danger-full-color:active {
+  background-color: red;
+  border-color: red;
   color: #fff;
   transition: color 0.3s ease-in,
               background-color 0.3s ease-in,
@@ -176,66 +197,16 @@ color: white;
 font-size: 18px!important;
 }
 
-
-/*html,
-body,
-div,
-h1,
-p,
-a,
-video {
-  margin: 0;
-  padding: 0;
-}
-
-/* =============================================================================
-  HTML, BODY
-============================================================================= */
-
-/*html,
-body {
-  height: 100%;
-}*/
-
-/*body {
+#profileFont {
   font-family: "Oxygen", sans-serif;
-}*/
 
-/* =============================================================================
-  CONTENT
-============================================================================= */
-
-/*.content {
-  position: relative;
-  top: 30%;
-  z-index: 2;
-  margin: 0 auto;
-  max-width: 720px;
-  text-align: center;
 }
 
-.content__heading {
-  margin-bottom: 24px;
-  color: rgb(39,39,39);
-  font-size: 44px;
+#momentPost {
+vertical-align: middle;
+     font-family: "Oxygen", sans-serif;
 }
 
-.content__teaser {
-  margin-bottom: 24px;
-  color: rgb(89,89,89);
-  font-size: 22px;
+.location {
+  border-color: black;
 }
-
-.content__cta {
-  display: inline-block;
-  margin: 0;
-  padding: 12px 48px;
-  color: rgb(255,60,100);
-  font-size: 22px;
-  text-decoration: none;
-  border: solid 4px rgb(255,60,100);
-}*/
-
-/* =============================================================================
-  VIDEO
-============================================================================= */

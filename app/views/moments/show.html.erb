@@ -1,21 +1,41 @@
+<div class="container" id="momentPost">
+  <div class="row justify-content-xs-center">
+    <div class="text-center col-md-4 col-md-offset-3">
 
-
-    <h1 class="momentsheading">
-      This is the moments show page!
-    </h1>
-    <div class="articleLeft">
-      <%= @moment.description %>
-    </div>
-
-    <div class='article right'>
+      <div class="pull-left image">
+        <img src="http://i.imgur.com/bLN5W81.png?1" class="img-circle avatar" alt="user profile image">
+      </div>
 
     </div>
+  </div>
+</div>
+<div class="row justify-content-xs-center">
+  <div class="text-center col-md-4 col-md-offset-4">
 
+    <% if current_user %>
+    <b><%= current_user.first_name %></b>
+    <% end %>
+    wants you to join his moment on
+    <h4><% def pretty_date
+                pretty_date = Time.parse(@moment.date).to_date.strftime("%B %-d, %Y")
+              end %>
+      <%= pretty_date %>
+      at
+      <%= @moment.location %>
+    </h4>
+    <div class="location">
+      <%= @moment.name %>
+    </div>
 
-    <%= @moment.name %>
-    on
-    <% def pretty_date
-      pretty_date = Time.parse(@moment.date).to_date.strftime("%B %-d, %Y")
-    end %>
-    <%= pretty_date %> at
-    <%= @moment.location %>
+    <br>
+    <br>
+    <div class="post-description">
+      <p>
+        <%= @moment.description %></p>
+      <br>
+
+      <% if current_user %>
+      <%= link_to 'Delete',  method: :delete, class: "btn btn-danger"%>
+      <% end %>
+    </div>
+  </div>
