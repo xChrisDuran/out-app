@@ -20,4 +20,3 @@ I learned how to incorporate devise and associate it's methods to what a user ca
 I learned how to incorporate a Facebook login and created a Facebook developer account.
 I built my first solo full scale Ruby on Rails app.
 
-*
